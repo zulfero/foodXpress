@@ -6,7 +6,7 @@ function SignUpscreen() {
     <View>
       <Image
         className="ml-8"
-        source={require('../foodXpress/images/logo.png')}></Image>
+        source={require('../../images/logo.png')}></Image>
       <View className="mb-7">
         <TextInput
           className="border border-gray-200 rounded-full bg-[#F0F0F0] mb-4 p-[20px]"

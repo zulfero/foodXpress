@@ -1,85 +1,36 @@
 import {Image, Text, View, TextInput, Button, StyleSheet} from 'react-native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Categoryscreen from './src/screens/Categoryscreen';
+import Loginscreen from './src/screens/Loginscreen';
+import Homescreen from './src/screens/Homescreen';
+import SingleFoodscreen from './src/screens/SingleFoodscreen';
+import SignUpscreen from './src/screens/SignUpscreen';
+import AllFoodsscreen from './src/screens/AllFoodsscreen';
+import Cartscreen from './src/screens/Cartscreen';
+import {NavigationContainer} from '@react-navigation/native';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 
 function App() {
+  const Stack = createNativeStackNavigator();
+
+  function StackNavigation() {
+    return (
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={Homescreen} />
+        <Stack.Screen name="Category" component={Categoryscreen} />
+        <Stack.Screen name="SingleFood" component={SingleFoodscreen} />
+        <Stack.Screen name="Login" component={Loginscreen} />
+        <Stack.Screen name="Signup" component={SignUpscreen} />
+        <Stack.Screen name="Cart" component={Cartscreen} />
+        <Stack.Screen name="Allfoods" component={AllFoodsscreen} />
+      </Stack.Navigator>
+    );
+  }
+
   return (
-    <View>
-      <Text className="text-center text-black text-xl font-bold my-9">
-        Appetizers
-      </Text>
-      <View className="flex-row-reverse items-center mr-6 gap-6">
-        <View className=" shadow-lg border-gray-200 border rounded-3xl w-[170px] items-center pb-6 ">
-          <Image
-            className="  w-[120px] h-[120px]"
-            source={require('../foodXpress/images/mozzarela.png')}></Image>
-
-          <Text>Mozzarela</Text>
-          <Text>Sticks</Text>
-          <Text className="text-[#FF7356]">Ksh. 1,900</Text>
-        </View>
-
-        <View className=" shadow-9xl border-gray-200 border rounded-3xl w-[170px] items-center pb-6 ml-7">
-          <Image
-            className="  w-[120px] h-[120px]"
-            source={require('../foodXpress/images/chicken-wings.png')}></Image>
-
-          <Text>Chicken</Text>
-          <Text>Wings</Text>
-          <Text className="text-[#FF7356]">Ksh. 1,900</Text>
-        </View>
-
-        
-      </View>
-
-      <View className="flex-row-reverse items-center mr-6 gap-4 my-3">
-        <View className=" shadow-lg border-gray-200 border rounded-3xl w-[170px] items-center pb-6 ">
-          <Image
-            className="  w-[120px] h-[120px]"
-            source={require('../foodXpress/images/spinach-dip.png')}></Image>
-
-          <Text>Spinach</Text>
-          <Text>Dip</Text>
-          <Text className="text-[#FF7356]">Ksh. 1,900</Text>
-        </View>
-
-        <View className=" shadow-9xl border-gray-200 border rounded-3xl w-[170px] items-center pb-6 ml-7">
-          <Image
-            className="  w-[120px] h-[120px]"
-            source={require('../foodXpress/images/grilled-chicken.png')}></Image>
-
-          <Text>Grilled</Text>
-          <Text>Chicken</Text>
-          <Text className="text-[#FF7356]">Ksh. 1,900</Text>
-        </View>
-
-        
-      </View>
-
-
-      <View className="flex-row-reverse items-center mr-6 gap-6 ">
-        <View className=" shadow-lg border-gray-200 border rounded-3xl w-[170px] items-center pb-6 ">
-          <Image
-            className="  w-[120px] h-[120px]"
-            source={require('../foodXpress/images/chocolate-cake.png')}></Image>
-
-          <Text>Chocolate </Text>
-          <Text>Cake</Text>
-          <Text className="text-[#FF7356]">Ksh. 1,900</Text>
-        </View>
-
-        <View className=" shadow-9xl border-gray-200 border rounded-3xl w-[170px] items-center pb-6 ml-7">
-          <Image
-            className="  w-[120px] h-[120px]"
-            source={require('../foodXpress/images/spaghetti-bolognese.png')}></Image>
-
-          <Text>Spaghtei</Text>
-          <Text>Bolognese</Text>
-          <Text className="text-[#FF7356]">Ksh. 1,900</Text>
-        </View>
-
-        
-      </View>
-    </View>
+    <NavigationContainer>
+      <StackNavigation />
+    </NavigationContainer>
   );
 }
 export default App;
